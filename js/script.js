@@ -5,11 +5,11 @@ const todoCompleted = document.querySelector('.todo-completed');
 
 const toDoData = [];
 
-let copyToDoData = [];
 
 const rendre = function(){
     todoList.innerHTML = '';
     todoCompleted.innerHTML = '';
+    //copyAndPush();
     toDoData.forEach(function(item, index){
         const li = document.createElement('li');
         li.classList.add('todo-item');
@@ -54,9 +54,12 @@ todoControl.addEventListener('submit', function(event){
     headerInput.value = '';
     rendre();
 });
+
 copyToDoData = JSON.parse(localStorage.getItem('toDoData'));
 for(let i = 0; i < copyToDoData.length; i++){
     toDoData.push(copyToDoData[i]);
 }
+rendre();
+
 
 //localStorage.clear();
